@@ -3,10 +3,7 @@ package patis.odysspring.sfgdi;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import patis.odysspring.sfgdi.controllers.ConstructorInjectedController;
-import patis.odysspring.sfgdi.controllers.MyController;
-import patis.odysspring.sfgdi.controllers.PropertyInjectedController;
-import patis.odysspring.sfgdi.controllers.SetterInjectedController;
+import patis.odysspring.sfgdi.controllers.*;
 
 @SpringBootApplication
 public class SfgDiApplication {
@@ -14,6 +11,8 @@ public class SfgDiApplication {
 	public static void main(String[] args) {
 		ApplicationContext ctx= SpringApplication.run(SfgDiApplication.class, args);
 		MyController myController=(MyController) ctx.getBean("myController");
+		I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+		System.out.println(i18nController.sayHello());
 
 		System.out.println("--------------Primary Bean");
 		System.out.println(myController.dayHello());
